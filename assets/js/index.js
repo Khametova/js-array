@@ -1,5 +1,5 @@
 //alert("Helo World");
-/*const numbers = [1, 6, 4, 7];
+const numbers = [1, 6, 4, 7];
 
 numbers.push(28);
 console.log("numbers", numbers);
@@ -14,7 +14,7 @@ console.log("numbers", numbers);
 
 const deletedNummbers = [...numbers.splice(3), ...numbers.splice(0, 1)];
 
-
+*/
 
 console.log(numbers[0]);
 console.log(numbers[3]);
@@ -42,9 +42,7 @@ function arrayProduct(arr) {
 
 console.log(arrayProduct(numbers));
 
-*/
-
-/*const arr = [99, 5, 0, 9, 30];
+const arr = [99, 5, 0, 9, 30];
 console.log("arr", arr);
 function divisor(item) {
   return item / 100;
@@ -58,7 +56,6 @@ function cubed(item) {
 }
 const arrCubed = arr.map(cubed);
 console.log("arrCubed", arrCubed);
-*/
 
 const arrey = [-1, 5, 0, 9, -10];
 
