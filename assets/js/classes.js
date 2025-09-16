@@ -8,10 +8,10 @@ class Post {
   }
 }
 
-const post = new Post{
-    "id post",
-    "test",
-    "Testowich",
-    "this post about the test",
-    12.07.2023,
-};
+const post2 = new Post(
+  "id post",
+  "test",
+  "Testowich",
+  "this post about the test",
+  "12.07.2023"
+);
