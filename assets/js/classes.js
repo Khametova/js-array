@@ -1,25 +1,41 @@
-class Post {
-  constructor(id, title, author, text, date) {
-    this.id = id;
-    this.title = title;
-    this.author = author;
-    this.text = text;
-    this.date = date;
+class Pet {
+  constructor(animal, breed, color, name, nickname, age) {
+    this.animal = animal;
+    this.breed = breed;
+    this.color = color;
+    this.name = name;
+    this.nickname = nickname;
+    this.age = age;
   }
 
-  set text(value) {
-    this._text = value;
+  set color(value) {
+    const colors = ["white", "black", "ginger", "grey", "multicolored"];
+    if (colors.includes(value)) {
+      this._color = value;
+    } else {
+      throw RangeError("Unsupported color");
+    }
   }
 
-  get text() {
-    return this._text;
+  render() {
+    document.write(`
+       <article> 
+         <h2>Animal: ${this.animal} <h2>
+         <p>Breed: ${this.breed} <p>
+         <p>Color: ${this._color} <p>
+         <p>Name: ${this.name} <p>
+         <p>Nickname: ${this.nickname} <p>
+         <p>Age: ${this.age} <p>
+       </article>  
+        `);
   }
 }
-const post2 = new Post(
-  "id post",
-  "test",
-  "Testowich",
-  "this post about the test",
-  "12.07.2023"
-);
-console.log("post2", post2);
+
+try {
+  const pet = new Pet("cat", "british", "ginger", "Marseilles", "Masya", "4");
+  console.log(pet);
+  pet.render();
+  pet.color = "ginger";
+} catch (err) {
+  console.log("err", err);
+}
