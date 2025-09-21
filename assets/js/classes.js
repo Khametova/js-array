@@ -1,4 +1,4 @@
-class Pet {
+/*class Pet {
   constructor(animal, breed, color, name, nickname, age) {
     this.animal = animal;
     this.breed = breed;
@@ -43,4 +43,56 @@ try {
 } catch (err) {
   console.log("err", err);
   console.log("pet2", pet2);
+}
+*/
+
+class RangeValidator {
+  constructor(from, to) {
+    this.from = from;
+    this.to = to;
+  }
+
+  isValid(number) {
+    if (number >= this.from && number <= this.to) return true;
+    else {
+      return false;
+    }
+  }
+
+  set from(value) {
+    if (typeof value !== "number" || isNaN(value)) {
+      throw new TypeError("Параметр from повинен бути числом");
+    }
+    if (value > this.to) {
+      throw new RangeError("число не повинно бути менше this.to");
+    }
+    this._from = value;
+  }
+
+  get from() {
+    return this._from;
+  }
+
+  set to(value) {
+    if (typeof value !== "number" || isNaN(value)) {
+      throw new TypeError("Параметр to повинен бути числом");
+    }
+    if (value < this.from) {
+      throw new RangeError("число не повинно бути менше this.from");
+    }
+    this._to = value;
+  }
+
+  get to() {
+    return this._to;
+  }
+}
+try {
+  const age = new RangeValidator(0, 100);
+  console.log("age", age);
+  console.log("isValid()", age.isValid(11));
+  age.from = 150;
+  console.log("age", age);
+} catch (err) {
+  console.log("err", err);
 }
