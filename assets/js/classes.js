@@ -7,7 +7,9 @@ class Pet {
     this.nickname = nickname;
     this.age = age;
   }
-
+  changeAnimal(newAnimal) {
+    this.animal = newAnimal;
+  }
   set color(value) {
     const colors = ["white", "black", "ginger", "grey", "multicolored"];
     if (colors.includes(value)) {
@@ -36,6 +38,9 @@ try {
   console.log(pet);
   pet.render();
   pet.color = "ginger";
+  pet.changeAnimal("dog");
+  console.log("pet", pet);
 } catch (err) {
   console.log("err", err);
+  console.log("pet2", pet2);
 }
