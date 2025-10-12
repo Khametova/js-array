@@ -44,7 +44,7 @@ try {
   console.log("err", err);
   console.log("pet2", pet2);
 }
-*/
+
 
 class RangeValidator {
   constructor(from, to) {
@@ -96,3 +96,23 @@ try {
 } catch (err) {
   console.log("err", err);
 }
+*/
+class Vehicle {
+  constructor(dimensions, brand, model, manufactureDate) {
+    this.dimensions = dimensions;
+    this.brand = brand;
+    this.model = model;
+    this.manufactureDate = manufactureDate;
+  }
+
+  getFullinfo() {
+    return this._brand + " " + this._model + " " + this._age;
+  }
+  getAge() {
+    return;
+  }
+}
+const VehicleBus = new Vehicle("4751 mm", "Mercedes", "W206", "2022");
+console.log("VehicleBus", VehicleBus);
+const VehicleTruck = new Vehicle("89.4*116.5", "Volvo", "VNR660", "1985");
+console.log("VehicleTruck", VehicleTruck);
