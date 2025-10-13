@@ -98,21 +98,29 @@ try {
 }
 */
 class Vehicle {
-  constructor(dimensions, brand, model, manufactureDate) {
-    this.dimensions = dimensions;
-    this.brand = brand;
-    this.model = model;
-    this.manufactureDate = manufactureDate;
+  constructor(brand, model, manufactureDate) {
+    this._brand = brand;
+    this._model = model;
+    this._manufactureDate = manufactureDate;
   }
-
   getFullinfo() {
-    return this._brand + " " + this._model + " " + this._age;
-  }
-  getAge() {
-    return;
+    return `${this._brand},${this._model},${this._manufactureDate}`;
   }
 }
-const VehicleBus = new Vehicle("4751 mm", "Mercedes", "W206", "2022");
-console.log("VehicleBus", VehicleBus);
-const VehicleTruck = new Vehicle("89.4*116.5", "Volvo", "VNR660", "1985");
-console.log("VehicleTruck", VehicleTruck);
+
+const Vehicle1 = new Vehicle("Mersedes", "clas-B", "1950");
+
+class PassengerTransport extends Vehicle {
+  constructor(brand, model, manufactureDate) {
+    super(brand, model, manufactureDate);
+    // this.passenger = passenger;
+  }
+}
+const VehicleBus = new PassengerTransport(
+  "Mercedes-Benz",
+  "W206",
+  "2022",
+  "25"
+);
+console.log(VehicleBus.getFullinfo());
+console.log(Vehicle1.getFullinfo());
