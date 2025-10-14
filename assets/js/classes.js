@@ -113,14 +113,27 @@ const Vehicle1 = new Vehicle("Mersedes", "clas-B", "1950");
 class PassengerTransport extends Vehicle {
   constructor(brand, model, manufactureDate) {
     super(brand, model, manufactureDate);
-    // this.passenger = passenger;
+    this._passengerLimit = this.passengerLimit;
+    this._passengerCount = this.passengerCount;
+  }
+  addPassenger() {
+    if (this.passengerLimit < this.passengerCount) {
+      this.passengers.push(passnger);
+
+      return true;
+    } else {
+      return false;
+    }
   }
 }
+
 const VehicleBus = new PassengerTransport(
   "Mercedes-Benz",
   "W206",
   "2022",
-  "25"
+  "25",
+  "20"
 );
+
 console.log(VehicleBus.getFullinfo());
-console.log(Vehicle1.getFullinfo());
+console.log("VehicleBus.addPassenger()", VehicleBus.addPassenger());
