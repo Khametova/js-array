@@ -106,34 +106,59 @@ class Vehicle {
   getFullinfo() {
     return `${this._brand},${this._model},${this._manufactureDate}`;
   }
+  getAge() {
+    return new Date().getFullYear() - this._manufactureDate;
+  }
 }
 
-const Vehicle1 = new Vehicle("Mersedes", "clas-B", "1950");
+const vehicle1 = new Vehicle("Mersedes", "clas-B", 1950);
 
 class PassengerTransport extends Vehicle {
-  constructor(brand, model, manufactureDate) {
+  constructor(brand, model, manufactureDate, passengerLimit, passengerCount) {
     super(brand, model, manufactureDate);
-    this._passengerLimit = this.passengerLimit;
-    this._passengerCount = this.passengerCount;
+    this._passengerLimit = passengerLimit;
+    this._passengerCount = passengerCount;
   }
-  addPassenger() {
-    if (this.passengerLimit < this.passengerCount) {
-      this.passengers.push(passnger);
-
+  addPassenger(value) {
+    if (this._passengerLimit > this._passengerCount) {
+      this._passengerCount++;
       return true;
     } else {
       return false;
     }
   }
+  getFullinfo() {
+    return `${super.getFullinfo()},${this._passengerLimit}`;
+  }
 }
 
-const VehicleBus = new PassengerTransport(
+const vehicleBus = new PassengerTransport(
   "Mercedes-Benz",
   "W206",
-  "2022",
-  "25",
-  "20"
+  2022,
+  25,
+  20
 );
 
-console.log(VehicleBus.getFullinfo());
-console.log("VehicleBus.addPassenger()", VehicleBus.addPassenger());
+/*console.log(VehicleBus.getFullinfo());
+console.log(VehicleBus.addPassenger());
+console.log(VehicleBus.getAge());
+console.log(Vehicle1.getAge());
+*/
+
+class FreightTransport extends Vehicle {
+  constructor(brand, model, manufactureDate, capacity) {
+    super(brand, model, manufactureDate);
+    this._capacity = capacity;
+  }
+  checkLoadingPossibility(weight) {
+    return weight <= this._capacity;
+  }
+  getFullinfo() {
+    return `${super.getFullinfo()},${this._capacity}`;
+  }
+}
+const vehicle3 = new FreightTransport("Lambargini", "L3", 1930, 1000);
+console.log(vehicle3);
+console.log(vehicle3.checkLoadingPossibility(800));
+console.log(vehicle3.getFullinfo());
